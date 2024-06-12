@@ -1,41 +1,46 @@
+import pytest
+from animal import Animal, Mammal, Primate, Marsupial, Bird, Reptile
 
-# Import the classes from the module where they are defined
-class animal_test:
-    def test_animal(self):
-        animal = Animal("Generic Animal", "Unknown")
-        self.assertEqual(animal.name, "Generic Animal")
-        self.assertEqual(animal.species, "Unknown")
+def test_animal_creation():
+    animal = Animal("Generic Animal", "Unknown")
+    assert animal.name == "Generic Animal"
+    assert animal.species == "Unknown"
 
-    def test_mammal(self):
-        mammal = Mammal("Generic Mammal", "Mammal")
-        self.assertEqual(mammal.name, "Generic Mammal")
-        self.assertEqual(mammal.species, "Mammal")
+def test_mammal_creation():
+    mammal = Mammal("Generic Mammal", "Mammal")
+    assert mammal.name == "Generic Mammal"
+    assert mammal.species == "Mammal"
+    assert mammal.give_birth() == "Giving birth to live young"
 
-    def test_primate(self):
-        primate = Primate("Chimpanzee", "Primate")
-        self.assertEqual(primate.name, "Chimpanzee")
-        self.assertEqual(primate.species, "Primate")
-        self.assertTrue(hasattr(primate, 'climb_tree'))
-        self.assertTrue(hasattr(primate, 'speak'))
+def test_primate_creation():
+    primate = Primate("Chimpanzee", "Primate")
+    assert primate.name == "Chimpanzee"
+    assert primate.species == "Primate"
+    assert primate.climb_tree() == "Climbing a tree"
+    assert primate.speak() == "Speaking"
 
-    def test_marsupial(self):
-        marsupial = Marsupial("Kangaroo", "Marsupial")
-        self.assertEqual(marsupial.name, "Kangaroo")
-        self.assertEqual(marsupial.species, "Marsupial")
-        self.assertTrue(hasattr(marsupial, 'carry_baby'))
+def test_marsupial_creation():
+    marsupial = Marsupial("Kangaroo", "Marsupial")
+    assert marsupial.name == "Kangaroo"
+    assert marsupial.species == "Marsupial"
+    assert marsupial.carry_baby() == "Carrying baby in pouch"
 
-    def test_bird(self):
-        bird = Bird("Eagle", 2.0)
-        self.assertEqual(bird.name, "Eagle")
-        self.assertEqual(bird.species, "Bird")
-        self.assertEqual(bird.wingspan, 2.0)
+def test_bird_creation():
+    bird = Bird("Eagle", 2.0)
+    assert bird.name == "Eagle"
+    assert bird.species == "Bird"
+    assert bird.wingspan == 2.0
+    assert bird.fly() == "Flying"
 
-    def test_reptile(self):
-        reptile = Reptile("Lizard", True)
-        self.assertEqual(reptile.name, "Lizard")
-        self.assertEqual(reptile.species, "Reptile")
-        self.assertTrue(reptile.back_in_sun)
+def test_reptile_creation():
+    reptile = Reptile("Lizard", True)
+    assert reptile.name == "Lizard"
+    assert reptile.species == "Reptile"
+    assert reptile.back_in_sun is True
+    assert reptile.bask() == "Basking in the sun"
 
 if __name__ == "__main__":
-    animal_test.main()
+    pytest.main()
+
+
 
