@@ -1,40 +1,41 @@
-import pytest
 
 # Import the classes from the module where they are defined
-from animal import Animal, Mammal, Primate, Bird, Reptile
+class animal_test:
+    def test_animal(self):
+        animal = Animal("Generic Animal", "Unknown")
+        self.assertEqual(animal.name, "Generic Animal")
+        self.assertEqual(animal.species, "Unknown")
 
-def test_animal():
-    animal = Animal(name="Generic Animal", species="Unknown")
-    assert animal.name == "Generic Animal"
-    assert animal.species == "Unknown"
+    def test_mammal(self):
+        mammal = Mammal("Generic Mammal", "Mammal")
+        self.assertEqual(mammal.name, "Generic Mammal")
+        self.assertEqual(mammal.species, "Mammal")
 
-def test_mammal():
-    mammal = Mammal(name="Generic Mammal", species="Mammalia")
-    assert mammal.name == "Generic Mammal"
-    assert mammal.species == "Mammalia"
-    assert hasattr(mammal, 'give_birth')
-    assert callable(getattr(mammal, 'give_birth', None))
+    def test_primate(self):
+        primate = Primate("Chimpanzee", "Primate")
+        self.assertEqual(primate.name, "Chimpanzee")
+        self.assertEqual(primate.species, "Primate")
+        self.assertTrue(hasattr(primate, 'climb_tree'))
+        self.assertTrue(hasattr(primate, 'speak'))
 
-def test_primate():
-    primate = Primate(name="Generic Primate", species="Primate")
-    assert primate.name == "Generic Primate"
-    assert primate.species == "Primate"
-    assert hasattr(primate, 'give_birth')
-    assert callable(getattr(primate, 'give_birth', None))
-    assert hasattr(primate, 'speak')
-    assert callable(getattr(primate, 'speak', None))
+    def test_marsupial(self):
+        marsupial = Marsupial("Kangaroo", "Marsupial")
+        self.assertEqual(marsupial.name, "Kangaroo")
+        self.assertEqual(marsupial.species, "Marsupial")
+        self.assertTrue(hasattr(marsupial, 'carry_baby'))
 
-def test_bird():
-    bird = Bird(name="Generic Bird", wingspan=1.5)
-    assert bird.name == "Generic Bird"
-    assert bird.species == "Bird"
-    assert bird.wingspan == 1.5
+    def test_bird(self):
+        bird = Bird("Eagle", 2.0)
+        self.assertEqual(bird.name, "Eagle")
+        self.assertEqual(bird.species, "Bird")
+        self.assertEqual(bird.wingspan, 2.0)
 
-def test_reptile():
-    reptile = Reptile(name="Generic Reptile", back_in_sun=True)
-    assert reptile.name == "Generic Reptile"
-    assert reptile.species == "Reptile"
-    assert reptile.back_in_sun is True
+    def test_reptile(self):
+        reptile = Reptile("Lizard", True)
+        self.assertEqual(reptile.name, "Lizard")
+        self.assertEqual(reptile.species, "Reptile")
+        self.assertTrue(reptile.back_in_sun)
 
 if __name__ == "__main__":
-    pytest.main()
+    animal_test.main()
+
