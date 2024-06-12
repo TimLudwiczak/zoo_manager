@@ -1,7 +1,7 @@
 import pytest
 
 # Import the classes from the module where they are defined
-from your_module import Animal, Mammal, Primate, Bird, Reptile
+from animal import Animal, Mammal, Primate, Bird, Reptile
 
 def test_animal():
     animal = Animal(name="Generic Animal", species="Unknown")
