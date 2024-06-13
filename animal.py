@@ -21,3 +21,9 @@ class Reptile(Animal):
     def __init__(self, name, back_in_sun):
         super().__init__(name, species = 'Reptile')
         self.back_in_sun = back_in_sun
+class Aviary:
+    def __init__(self, birds):
+        self.birds = birds
+class ReptileEnclosure:
+    def __init__(self, reptiles):
+        self.reptiles = reptiles
